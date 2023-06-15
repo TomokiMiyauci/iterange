@@ -13,6 +13,19 @@ Numeric sequence lazy generator, TC39
 [proposal-iterator.range](https://github.com/tc39/proposal-iterator.range)
 implementation.
 
+## Entrypoint
+
+This project provides ponyfill and polyfill.
+
+Polyfill has a side effect, so the endpoint is isolated.
+
+The entrypoint of each are as follows:
+
+| Type     | Entrypoint    |
+| -------- | ------------- |
+| Ponyfill | `mod.ts`      |
+| Polyfill | `polyfill.ts` |
+
 ## Incremental sequence
 
 Specify `start` and `end`. By default, `step` is 1 and `end` is exclusive.
@@ -129,6 +142,18 @@ assertThrows(() => range(0, NaN).next());
 assertThrows(() => range(0, Infinity, NaN).next());
 assertThrows(() => range(Infinity, Infinity).next());
 assertThrows(() => range(0n, 1n, { step: 0n }).next());
+```
+
+## Polyfill
+
+Polyfill affects the global object. You must be very careful when using it.
+
+```ts
+import "https://deno.land/x/iterange@$VERSION/polyfill.ts";
+import { assert } from "https://deno.land/std/testing/asserts.ts";
+
+assert(Iterator);
+assert(Iterator.range);
 ```
 
 ## API
