@@ -103,6 +103,7 @@ describe("range", () => {
       assertThrows(() => range(NaN, NaN).next());
       assertThrows(() => range(0, 0, NaN).next());
       assertThrows(() => range(0, 0, { step: NaN }).next());
+      assertThrows(() => range(0, 1, { step: 0 }).next());
     });
 
     it("should throw error if the start or step is Infinity", () => {
@@ -115,8 +116,13 @@ describe("range", () => {
     });
 
     it("should type error if the all argument type is not same", () => {
-      //@ts-expect-error i
+      //@ts-expect-error end should be number
       range(0, 1n);
+
+      //@ts-expect-error step should be number
+      range(0, 100, 3n);
+      //@ts-expect-error end and step should be bigint
+      range(1n, Infinity, { step: 1 });
     });
   });
 });
