@@ -21,6 +21,6 @@ declare global {
   };
 }
 
-if (Iterator && !("range" in Iterator)) {
+if (!("range" in Iterator)) {
   Object.defineProperty(Iterator, "range", { value: range });
 }

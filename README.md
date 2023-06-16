@@ -148,11 +148,13 @@ assertThrows(() => range(0n, 1n, { step: 0n }).next());
 
 Polyfill affects the global object. You must be very careful when using it.
 
+Depends on the `Iterator` object. If there is no `Iterator`, a runtime error
+will occur.
+
 ```ts
 import "https://deno.land/x/iterange@$VERSION/polyfill.ts";
 import { assert } from "https://deno.land/std/testing/asserts.ts";
 
-assert(Iterator);
 assert(Iterator.range);
 ```
 
