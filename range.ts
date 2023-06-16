@@ -200,6 +200,7 @@ export interface NumericRangeOptions<T extends bigint | number> {
   inclusive?: boolean;
 }
 
+/** Whether the input is infinity or not. */
 export function isInfinity(input: unknown): boolean {
   return input === Infinity || input === -Infinity;
 }

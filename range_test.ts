@@ -1,7 +1,14 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 
-import { range } from "./range.ts";
-import { assertEquals, assertThrows, describe, it } from "./_dev_deps.ts";
+import { isInfinity, range } from "./range.ts";
+import {
+  assert,
+  assertEquals,
+  assertFalse,
+  assertThrows,
+  describe,
+  it,
+} from "./_dev_deps.ts";
 
 describe("range", () => {
   describe("range with number", () => {
@@ -130,6 +137,44 @@ describe("range", () => {
       range(0, 100, 3n);
       //@ts-expect-error end and step should be bigint
       range(1n, Infinity, { step: 1 });
+    });
+  });
+});
+
+describe("isInfinity", () => {
+  it("should return true", () => {
+    const table: unknown[] = [
+      Infinity,
+      -Infinity,
+    ];
+
+    table.forEach((input) => {
+      assert(isInfinity(input));
+    });
+  });
+
+  it("should return false", () => {
+    const table: unknown[] = [
+      0,
+      0n,
+      -0,
+      -0n,
+      1,
+      1n,
+      -1n,
+      -1n,
+      1.1,
+      -1,
+      1,
+      Number.MAX_SAFE_INTEGER,
+      Number.MAX_VALUE,
+      Number.MIN_SAFE_INTEGER,
+      Number.MIN_VALUE,
+      NaN,
+    ];
+
+    table.forEach((input) => {
+      assertFalse(isInfinity(input));
     });
   });
 });
