@@ -9,6 +9,9 @@ const enum Msg {
   InvalidStepRange = "step range must be less than infinity",
 }
 
+/** Infinity alias. */
+type Infinity = number;
+
 /** Generate numeric sequence lazily.
  *
  * ## Incremental sequence
@@ -136,7 +139,7 @@ export function range(
 ): Generator<number, void, unknown>;
 export function range(
   start: bigint,
-  end: bigint,
+  end: bigint | Infinity,
   option?: bigint | Readonly<NumericRangeOptions<bigint>>,
 ): Generator<bigint, void, unknown>;
 export function* range<T extends number | bigint>(

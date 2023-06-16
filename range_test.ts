@@ -94,6 +94,13 @@ describe("range", () => {
     assertEquals(iter.next().value, 1);
     assertEquals(iter.next().value, 2);
     assertEquals(iter.next().value, 3);
+
+    const iter2 = range(0n, Infinity);
+
+    assertEquals(iter2.next().value, 0n);
+    assertEquals(iter2.next().value, 1n);
+    assertEquals(iter2.next().value, 2n);
+    assertEquals(iter2.next().value, 3n);
   });
 
   describe("throwing error", () => {
