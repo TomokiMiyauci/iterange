@@ -21,8 +21,6 @@ declare global {
   };
 }
 
-if (!("Iterator" in globalThis)) {
-  globalThis.Iterator = { range };
-} else {
+if (Iterator && !("range" in Iterator)) {
   Object.defineProperty(Iterator, "range", { value: range });
 }
