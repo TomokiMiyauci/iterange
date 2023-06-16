@@ -187,7 +187,16 @@ export function* range<T extends number | bigint>(
 }
 
 export interface NumericRangeOptions<T extends bigint | number> {
+  /** The stepping interval.
+   * @default
+   * number: 1
+   * bigint: 1n
+   */
   step?: T;
+
+  /** Whether the upper bound is exclusive or not.
+   * @default false
+   */
   inclusive?: boolean;
 }
 
