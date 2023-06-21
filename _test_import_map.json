@@ -1,6 +1,6 @@
 {
   "imports": {
-    "https://deno.land/x/iterange@$VERSION/": "./",
+    "https://deno.land/x/iterange/": "./",
     "https://deno.land/std/": "https://deno.land/std@0.190.0/"
   }
 }

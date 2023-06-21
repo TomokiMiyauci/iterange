@@ -55,7 +55,7 @@ Show you how to use in this section.
 Specify `start` and `end`. By default, `step` is 1 and `end` is exclusive.
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const start = 0;
@@ -69,7 +69,7 @@ assertEquals([...range(start, end)], [0, 1, 2, 3, 4]);
 If `end` is less than `start`, a decremental sequence is generated.
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const iterator = range(1, -3);
@@ -85,7 +85,7 @@ You can change the interval(step) of the sequence. The default is `1` (or `1n`
 for bigint).
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const iterator = range(0, Infinity, 2);
@@ -107,7 +107,7 @@ The third argument can be one of the following options:
 By default, `end` is exclusive. This can be changed by specifying options.
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 assertEquals([...range(0, 5, { inclusive: true })], [0, 1, 2, 3, 4, 5]);
@@ -118,7 +118,7 @@ assertEquals([...range(0, 5, { inclusive: true })], [0, 1, 2, 3, 4, 5]);
 Option accepts another `step` field. This is equivalent to [step](#step).
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const iterator = range(0, -Infinity, { step: -2 });
@@ -133,7 +133,7 @@ assertEquals(iterator.next().value, -4);
 The range supports `bigint` as well as `number`.
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 const iterator = range(0n, 100n, { step: 10n });
@@ -146,7 +146,7 @@ assertEquals(iterator.next().value, 20n);
 That is, the following cannot be compiled and are type safe:
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 
 //@ts-expect-error
 range(0, 0n);
@@ -165,7 +165,7 @@ Throws `RangeError` in the following cases:
 - if `step` is 0, `start` and `end` are not the same
 
 ```ts
-import { range } from "https://deno.land/x/iterange@$VERSION/mod.ts";
+import { range } from "https://deno.land/x/iterange/mod.ts";
 import { assertThrows } from "https://deno.land/std/testing/asserts.ts";
 
 assertThrows(() => range(NaN, 0).next());
@@ -183,7 +183,7 @@ Depends on the `Iterator` object. If there is no `Iterator`, a runtime error
 will occur.
 
 ```ts
-import "https://deno.land/x/iterange@$VERSION/polyfill.ts";
+import "https://deno.land/x/iterange/polyfill.ts";
 import { assert } from "https://deno.land/std/testing/asserts.ts";
 
 assert(Iterator.range);

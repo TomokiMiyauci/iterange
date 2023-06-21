@@ -19,7 +19,7 @@ type Infinity = number;
  * Specify `start` and `end`. By default, `step` is 1 and `end` is exclusive.
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
  *
  * const start = 0;
@@ -33,7 +33,7 @@ type Infinity = number;
  * If `end` is less than `start`, a decremental sequence is generated.
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
  *
  * const iterator = range(1, -3);
@@ -49,7 +49,7 @@ type Infinity = number;
  * for bigint).
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
  *
  * const iterator = range(0, Infinity, 2);
@@ -64,7 +64,7 @@ type Infinity = number;
  * By default, `end` is exclusive. This can be changed by specifying options.
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
  *
  * assertEquals([...range(0, 5, { inclusive: true })], [0, 1, 2, 3, 4, 5]);
@@ -75,7 +75,7 @@ type Infinity = number;
  * Option accepts another `step` field. This is equivalent to [step](#step).
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
  *
  * const iterator = range(0, -Infinity, { step: -2 });
@@ -90,7 +90,7 @@ type Infinity = number;
  * The range supports `bigint` as well as `number`.
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
  *
  * const iterator = range(0n, 100n, { step: 10n });
@@ -103,7 +103,7 @@ type Infinity = number;
  * That is, the following cannot be compiled and are type safe:
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  *
  * //@ts-expect-error
  * range(0, 0n);
@@ -122,7 +122,7 @@ type Infinity = number;
  * - if `step` is 0, `start` and `end` are not the same
  *
  * ```ts
- * import { range } from "https://deno.land/x/iterange@$VERSION/range.ts";
+ * import { range } from "https://deno.land/x/iterange/range.ts";
  * import { assertThrows } from "https://deno.land/std/testing/asserts.ts";
  *
  * assertThrows(() => range(NaN, 0).next());
