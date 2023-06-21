@@ -20,12 +20,14 @@ implementation.
   - [Incremental sequence](#incremental-sequence)
   - [Decremental sequence](#decremental-sequence)
   - [Step](#step)
-  - [Inclusive end range](#inclusive-end-range)
+  - [Option](#option)
+    - [Inclusive end](#inclusive-end)
     - [Step option](#step-option)
   - [Bigint](#bigint)
-  - [Throwing error](#throwing-error)
+  - [Errors](#errors)
   - [Polyfill](#polyfill)
 - [API](#api)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Install
@@ -43,6 +45,8 @@ npm i iterange
 ```
 
 ## Usage
+
+Show you how to use in this section.
 
 ### Incremental sequence
 
@@ -89,7 +93,14 @@ assertEquals(iterator.next().value, 2);
 assertEquals(iterator.next().value, 4);
 ```
 
-### Inclusive end range
+### Option
+
+The third argument can be one of the following options:
+
+- `inclusive`
+- `step`
+
+#### Inclusive end
 
 By default, `end` is exclusive. This can be changed by specifying options.
 
@@ -143,7 +154,7 @@ range(0, 100, 3n);
 range(1n, Infinity, { step: 1 });
 ```
 
-### Throwing error
+### Errors
 
 Throws `RangeError` in the following cases:
 
@@ -179,6 +190,10 @@ assert(Iterator.range);
 ## API
 
 See [deno doc](https://deno.land/x/iterange?doc) for all APIs.
+
+## Contributing
+
+See [contributing](CONTRIBUTING.md).
 
 ## License
 
