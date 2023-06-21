@@ -13,20 +13,38 @@ Numeric sequence lazy generator, TC39
 [proposal-iterator.range](https://github.com/tc39/proposal-iterator.range)
 implementation.
 
-## Entrypoint
+## Table of Contents <!-- omit in toc -->
 
-This project provides ponyfill and polyfill.
+- [Install](#install)
+- [Usage](#usage)
+  - [Incremental sequence](#incremental-sequence)
+  - [Decremental sequence](#decremental-sequence)
+  - [Step](#step)
+  - [Inclusive end range](#inclusive-end-range)
+    - [Step option](#step-option)
+  - [Bigint](#bigint)
+  - [Throwing error](#throwing-error)
+  - [Polyfill](#polyfill)
+- [API](#api)
+- [License](#license)
 
-Polyfill has a side effect, so the endpoint is isolated.
+## Install
 
-The entrypoint of each are as follows:
+deno.land:
 
-| Type     | Entrypoint    |
-| -------- | ------------- |
-| Ponyfill | `mod.ts`      |
-| Polyfill | `polyfill.ts` |
+```ts
+import * as mod from "https://deno.land/x/iterange/mod.ts";
+```
 
-## Incremental sequence
+npm:
+
+```bash
+npm i iterange
+```
+
+## Usage
+
+### Incremental sequence
 
 Specify `start` and `end`. By default, `step` is 1 and `end` is exclusive.
 
@@ -40,7 +58,7 @@ const end = 5;
 assertEquals([...range(start, end)], [0, 1, 2, 3, 4]);
 ```
 
-## Decremental sequence
+### Decremental sequence
 
 If `end` is less than `start`, a decremental sequence is generated.
 
@@ -55,7 +73,7 @@ assertEquals(iterator.next().value, 0);
 assertEquals(iterator.next().value, -1);
 ```
 
-## Step
+### Step
 
 You can change the interval(step) of the sequence. The default is `1` (or `1n`
 for bigint).
@@ -71,7 +89,7 @@ assertEquals(iterator.next().value, 2);
 assertEquals(iterator.next().value, 4);
 ```
 
-## Inclusive end range
+### Inclusive end range
 
 By default, `end` is exclusive. This can be changed by specifying options.
 
@@ -82,7 +100,7 @@ import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 assertEquals([...range(0, 5, { inclusive: true })], [0, 1, 2, 3, 4, 5]);
 ```
 
-### Step option
+#### Step option
 
 Option accepts another `step` field. This is equivalent to [step](#step).
 
@@ -97,7 +115,7 @@ assertEquals(iterator.next().value, -2);
 assertEquals(iterator.next().value, -4);
 ```
 
-## Bigint
+### Bigint
 
 The range supports `bigint` as well as `number`.
 
@@ -125,7 +143,7 @@ range(0, 100, 3n);
 range(1n, Infinity, { step: 1 });
 ```
 
-## Throwing error
+### Throwing error
 
 Throws `RangeError` in the following cases:
 
@@ -144,7 +162,7 @@ assertThrows(() => range(Infinity, Infinity).next());
 assertThrows(() => range(0n, 1n, { step: 0n }).next());
 ```
 
-## Polyfill
+### Polyfill
 
 Polyfill affects the global object. You must be very careful when using it.
 
@@ -160,7 +178,7 @@ assert(Iterator.range);
 
 ## API
 
-See [deno doc](https://deno.land/x/iterange/mod.ts) for all APIs.
+See [deno doc](https://deno.land/x/iterange?doc) for all APIs.
 
 ## License
 
