@@ -113,7 +113,7 @@ type Infinity = number;
  * range(1n, Infinity, { step: 1 });
  * ```
  *
- * ## Throwing error
+ * ## Errors
  *
  * Throws `RangeError` in the following cases:
  *
@@ -131,6 +131,8 @@ type Infinity = number;
  * assertThrows(() => range(Infinity, Infinity).next());
  * assertThrows(() => range(0n, 1n, { step: 0n }).next());
  * ```
+ *
+ * @throws {RangeError}
  */
 export function range(
   start: number,
