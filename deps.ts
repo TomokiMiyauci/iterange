@@ -1,4 +1,4 @@
-// Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
+// Copyright © 2023 Tomoki Miyauchi. All rights reserved. MIT license.
 // This module is browser compatible.
 
 export { isObject } from "https://deno.land/x/isx@1.4.0/is_object.ts";
