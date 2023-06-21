@@ -8,6 +8,8 @@
 
 [![test](https://github.com/TomokiMiyauci/iterange/actions/workflows/test.yaml/badge.svg)](https://github.com/TomokiMiyauci/iterange/actions/workflows/test.yaml)
 [![NPM](https://nodei.co/npm/iterange.png?mini=true)](https://nodei.co/npm/iterange/)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 Numeric sequence lazy generator, TC39
 [proposal-iterator.range](https://github.com/tc39/proposal-iterator.range)
